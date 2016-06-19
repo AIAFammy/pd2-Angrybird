@@ -1,0 +1,30 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="ground.png">image/GROUND.png</file>
+        <file alias="bird.png">image/Normal_Bird_1.png</file>
+        <file>image/rock.png</file>
+        <file>image/speedbird.png</file>
+        <file>image/splitbird.png</file>
+        <file>image/dangone.png</file>
+        <file>image/dangone_front.png</file>
+        <file>image/pig.png</file>
+        <file>image/back.png</file>
+        <file>image/0star.png</file>
+        <file>image/1star.png</file>
+        <file>image/2star.png</file>
+        <file>image/3star.png</file>
+        <file>image/quit.png</file>
+        <file>image/restart.png</file>
+        <file>image/score10000.png</file>
+        <file>image/scoreboard.png</file>
+        <file>image/fullscore.png</file>
+        <file>image/scoreboard_1.png</file>
+        <file>image/score0.png</file>
+        <file>image/zeroscore.png</file>
+        <file>music/game_complete.mp3</file>
+        <file>music/slingshot.wav</file>
+        <file>music/title_theme.mp3</file>
+        <file>music/tnt.wav</file>
+        <file>music/flying.wav</file>
+    </qresource>
+</RCC>
