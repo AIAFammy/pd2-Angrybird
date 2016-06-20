@@ -25,6 +25,7 @@
         <file>music/slingshot.wav</file>
         <file>music/title_theme.mp3</file>
         <file>music/tnt.wav</file>
+        <file>image/opbird.png</file>
         <file>music/flying.wav</file>
     </qresource>
 </RCC>

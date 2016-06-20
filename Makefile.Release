@@ -190,7 +190,8 @@ release/qrc_res.cpp: res.qrc \
 		image/score10000.png \
 		image/zeroscore.png \
 		image/1star.png \
-		image/back.png
+		image/back.png \
+		image/opbird.png
 	C:\Qt\Qt5.6.0\5.6\mingw49_32\bin\rcc.exe -name res res.qrc -o release\qrc_res.cpp
 
 compiler_moc_header_make_all: release/moc_mainwindow.cpp release/moc_gameitem.cpp

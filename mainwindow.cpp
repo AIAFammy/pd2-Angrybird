@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     canspeed = true;
     Issplit = false;
     cansplit = true;
+    Isop = false;
     Isover = false;
     number = 0;
     timecount = 0;
@@ -66,7 +67,7 @@ void MainWindow::showEvent(QShowEvent *)
     rock8 = new Rock(22.9f,20.0f,3.0f,0.5f,&timer,QPixmap(":/image/rock.png").scaled(195,42.87),world,scene);
     // Create bird (You can edit here)
     pigie = new Pig(22.5f,15.0f,0.27f,&timer,QPixmap(":/image/pig.png").scaled(height()/9.0,height()/9.0),world,scene);
-    //pigie = new Pig(10.5f,6.0f,0.27f,&timer,QPixmap(":/image/pig.png").scaled(height()/9.0,height()/9.0),world,scene);
+    //pigie = new Pig(10.5f,5.0f,0.27f,&timer,QPixmap(":/image/pig.png").scaled(height()/9.0,height()/9.0),world,scene);
     // Setting the Velocity
     //birdie->setLinearVelocity(b2Vec2(20,0));
     //itemList.push_back(birdie);
@@ -153,6 +154,11 @@ bool MainWindow::eventFilter(QObject *, QEvent *event)
             birdie3->setLinearVelocity(b2Vec2(birdie3->vel().x*2,birdie3->vel().y+10));
             Issplit = true;
         }
+        if(number == 4 && !Isop)
+        {
+            birdie4->setLinearVelocity(b2Vec2((x/33-birdie4->pos().x)*5,-30));
+            Isop = true;
+        }
     }
     /******************************************************************************************/
     if(event->type() == QEvent::MouseMove)
@@ -166,6 +172,7 @@ bool MainWindow::eventFilter(QObject *, QEvent *event)
             line1->setLine(x,y,165,203);
         }
         //std::cout << "(" << (180-x)/10 << ","<< -(203-y)/10 << ")" <<std::endl ;
+        //std::cout << x << "," << y << std::endl ;
 
     }
     /******************************************************************************************/
@@ -202,7 +209,7 @@ bool MainWindow::eventFilter(QObject *, QEvent *event)
                 }
                 case 4:
                 {
-                        birdie4 = new Bird(5.0f,12.0f,0.27f,&timer,QPixmap(":/bird.png").scaled(height()/9.0,height()/9.0),world,scene);
+                        birdie4 = new Bird(5.0f,12.0f,0.27f,&timer,QPixmap(":/image/opbird.png").scaled(height()/9.0,height()/9.0),world,scene);
                         birdie4->setLinearVelocity(b2Vec2((180-x)/10,-(203-y)/10));
                         itemList.push_back(birdie4);
                         break;
@@ -212,7 +219,7 @@ bool MainWindow::eventFilter(QObject *, QEvent *event)
             {
                 case 1: bullet->setPixmap(QPixmap(":/image/speedbird.png").scaled(height()/9.0,height()/9.0));break;
                 case 2: bullet->setPixmap(QPixmap(":/image/splitbird.png").scaled(height()/9.0,height()/9.0));break;
-                case 3: bullet->setPixmap(QPixmap(":/bird.png").scaled(height()/9.0,height()/9.0));break;
+                case 3: bullet->setPixmap(QPixmap(":/image/opbird.png").scaled(height()/9.0,height()/9.0));break;
                 case 4: bullet->hide();
             }
             bullet->hide();
@@ -317,7 +324,7 @@ void MainWindow::tick()
         {
             case 1:
             {
-                if(fabs(birdie1->vel().x)<0.05 && fabs(birdie1->vel().y)<0.05)
+                if(fabs(birdie1->vel().x)<0.2 && fabs(birdie1->vel().y)<0.2)
                 {
                     Isprepare = true;
                     timebin = 99999999;
@@ -527,6 +534,7 @@ void MainWindow::restartGame()
     canspeed = true;
     Issplit = false;
     cansplit = true;
+    Isop = false;
     Isover = false;
     number = 0;
     timecount = 0;

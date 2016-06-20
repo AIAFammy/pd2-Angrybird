@@ -60,6 +60,7 @@ private:
     bool Issplit;
     bool cansplit;
     bool Isover;
+    bool Isop;
 
     QGraphicsPixmapItem* bullet;
     QGraphicsLineItem* line1;
